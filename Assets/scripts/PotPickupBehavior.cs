@@ -24,6 +24,8 @@ public class PotPickupBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the player is close to the stove and Fire2 (right click / left shift) is pressed, make the pot the child
+        // of the correct object based on whether it is picked up or placed down
         if (PlayerInTrigger && Input.GetButtonDown("Fire2"))
         {
             if (PotManager.IsPickedUp)
