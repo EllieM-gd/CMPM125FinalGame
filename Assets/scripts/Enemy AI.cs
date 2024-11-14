@@ -34,6 +34,8 @@ public class EnemyAI : MonoBehaviour
 
         Agent = GetComponent<NavMeshAgent>();
 
+        Destination = this.gameObject.GetComponent<Transform>().position;
+
         //Checks to make sure the generated position is valid, and when it is, the agent is sent there
         while (!CheckDestination(Destination))
         {
