@@ -51,9 +51,13 @@ public class PotPickupBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Ensure one item picked up at a time
         if (other.CompareTag("Player"))
         {
-            PlayerInTrigger = true;
+            if (other.transform.childCount == 0 || PotManager.IsPickedUp)
+            {
+                PlayerInTrigger = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
