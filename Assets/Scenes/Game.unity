@@ -322,7 +322,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3269144286561541393, guid: 8d75d5e4f14240f479df35e0ca146f1c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pasta
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1087307889001765060, guid: 8d75d5e4f14240f479df35e0ca146f1c, type: 3}
+    - {fileID: 4670647355595766171, guid: 8d75d5e4f14240f479df35e0ca146f1c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2023,9 +2030,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5245242888490895978, guid: ed401c2dcc9eca749a55fabd1248a2b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245242888490895978, guid: ed401c2dcc9eca749a55fabd1248a2b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 5817218198764980762, guid: ed401c2dcc9eca749a55fabd1248a2b0,
         type: 3}
       propertyPath: m_Name
+      value: Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817218198764980762, guid: ed401c2dcc9eca749a55fabd1248a2b0,
+        type: 3}
+      propertyPath: m_TagString
       value: Pot
       objectReference: {fileID: 0}
     - target: {fileID: 6625139808431984800, guid: ed401c2dcc9eca749a55fabd1248a2b0,
@@ -3030,7 +3052,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3269144286561541393, guid: 8d75d5e4f14240f479df35e0ca146f1c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pasta
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1087307889001765060, guid: 8d75d5e4f14240f479df35e0ca146f1c, type: 3}
+    - {fileID: 4670647355595766171, guid: 8d75d5e4f14240f479df35e0ca146f1c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4908,7 +4937,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3269144286561541393, guid: 8d75d5e4f14240f479df35e0ca146f1c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pasta
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1087307889001765060, guid: 8d75d5e4f14240f479df35e0ca146f1c, type: 3}
+    - {fileID: 4670647355595766171, guid: 8d75d5e4f14240f479df35e0ca146f1c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -33,6 +33,8 @@ public class PotPickupBehavior : MonoBehaviour
                 Pot.transform.parent = StoveTransform;
                 Pot.transform.position = PotManager.PotBasePosition;
                 PotManager.IsPickedUp = false;
+                // Refill water
+                Pot.transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
@@ -41,6 +43,10 @@ public class PotPickupBehavior : MonoBehaviour
                 PotManager.IsPickedUp = true;
             }
         }
+        //if (!PlayerInTrigger && Input.GetButtonDown("Fire2"))
+        //{
+        //    throw / dump water
+        //}
     }
 
     private void OnTriggerEnter(Collider other)

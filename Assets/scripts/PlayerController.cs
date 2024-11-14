@@ -38,9 +38,7 @@ public class PlayerController : MonoBehaviour
         // Normalize diagonal movement speed
         if (move.magnitude > 0)
         {
-            move.Normalize();
-            Quaternion targetRotation = Quaternion.LookRotation(move);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            transform.forward = Vector3.Slerp(transform.forward, move.normalized, Time.deltaTime * rotationSpeed);
         }
         controller.Move(move * Time.deltaTime * playerSpeed);
 

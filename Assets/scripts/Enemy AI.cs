@@ -14,6 +14,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     private Vector3 Destination = Vector3.zero;
     [SerializeField] private float FleeRange = 4f;
+    public bool IsSplashed = false;
+    public bool IsPickedUp = false;
 
     //Below Block will need to be uncommented when pooling is implemented
 
@@ -48,35 +50,38 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPosition = player.transform.position;
-
-        float DistanceToPlayer = Vector3.Distance(PlayerPosition, this.gameObject.transform.position);
-
-        if (DistanceToPlayer < FleeRange)
+        if (!IsSplashed)
         {
-            Agent.ResetPath();
+            PlayerPosition = player.transform.position;
 
-            Vector3 fleeDirection = (this.gameObject.transform.position - PlayerPosition).normalized;
-            Vector3 newDestination = this.gameObject.transform.position + fleeDirection * FleeRange;
+            float DistanceToPlayer = Vector3.Distance(PlayerPosition, this.gameObject.transform.position);
 
-            while (!CheckDestination(newDestination))
+            if (DistanceToPlayer < FleeRange)
             {
-                newDestination = GeneratePointOnMap();
+                Agent.ResetPath();
+
+                Vector3 fleeDirection = (this.gameObject.transform.position - PlayerPosition).normalized;
+                Vector3 newDestination = this.gameObject.transform.position + fleeDirection * FleeRange;
+
+                while (!CheckDestination(newDestination))
+                {
+                    newDestination = GeneratePointOnMap();
+                }
+
+                Agent.SetDestination(newDestination);
             }
-
-            Agent.SetDestination(newDestination);
-        }
-        else if ((this.gameObject.transform.position.x == Destination.x) && (this.gameObject.transform.position.z == Destination.z))
-        {
-            Destination = GeneratePointOnMap();
-
-            while (!CheckDestination(Destination))
+            else if ((this.gameObject.transform.position.x == Destination.x) && (this.gameObject.transform.position.z == Destination.z))
             {
                 Destination = GeneratePointOnMap();
-            }
 
-            Agent.SetDestination(Destination);
-        }
+                while (!CheckDestination(Destination))
+                {
+                    Destination = GeneratePointOnMap();
+                }
+
+                Agent.SetDestination(Destination);
+            }
+        } 
     }
     
     //Generates a Point within a 14 x 14 box using perlin noise and returns it as a vector3
@@ -109,5 +114,16 @@ public class EnemyAI : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void EnemySplashed()
+    {
+        IsSplashed = true;
+    }
+
+    public void EnemyPickedUp()
+    {
+        IsPickedUp = true;
+        Agent.enabled = false;
     }
 }
