@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
         // Normalize diagonal movement speed
         if (move.magnitude > 0)
         {
+            move.Normalize();
             transform.forward = Vector3.Slerp(transform.forward, move.normalized, Time.deltaTime * rotationSpeed);
         }
         controller.Move(move * Time.deltaTime * playerSpeed);

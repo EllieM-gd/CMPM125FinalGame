@@ -37,7 +37,7 @@ public class EnemyTrigger : MonoBehaviour
         // Ensure one item picked up at a time
         if (other.CompareTag("Player"))
         {
-            if (other.transform.childCount == 0)
+            if (other.transform.childCount == 1)
             {
                 PlayerInTrigger = true;
             }

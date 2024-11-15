@@ -119,6 +119,7 @@ public class EnemyAI : MonoBehaviour
     public void EnemySplashed()
     {
         IsSplashed = true;
+        Agent.enabled = false;
     }
 
     public void EnemyPickedUp()
