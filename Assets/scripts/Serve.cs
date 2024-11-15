@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sauce : MonoBehaviour
+public class Serve : MonoBehaviour
 {
-    private Renderer pastaRenderer; // var for the renderer since this is what we are changing 
-    private Color sauceColor; // Store the color of the sauce we touch
     private bool PlayerInTrigger = false;
-    private Transform pasta;
     private PotManager PotManager;
-
+    private Transform pasta;
+    private Transform TableTransform;
+    // Start is called before the first frame update
     private void Start()
     {
         // Get the Renderer component of the pasta
-        pastaRenderer = GetComponent<Renderer>();
-        sauceColor = GetComponent<Renderer>().material.color;
         PotManager = PotManager.Instance;
+        TableTransform = this.gameObject.transform.parent;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +28,6 @@ public class Sauce : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -39,15 +36,22 @@ public class Sauce : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (PlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            pastaRenderer = pasta.GetComponent<Renderer>();
-            if (pastaRenderer != null)
-            {
-                pastaRenderer.material.color = sauceColor;
-            }
+            pasta.transform.parent = TableTransform;
+            pasta.transform.position = new Vector3(TableTransform.position.x, TableTransform.position.y + 0.8f, TableTransform.position.z);
+            // Make pasta disappear after some time so customers eat it
+            StartCoroutine(DisableAfterDelay());
         }
     }
+
+    private IEnumerator DisableAfterDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        // Disable pasta
+        pasta.gameObject.SetActive(false);
+    } 
 }
