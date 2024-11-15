@@ -43,16 +43,17 @@ public class EnemyTrigger : MonoBehaviour
             }
         }
         // Check if Player is holding pot and that pot has water
-        if (other.transform.childCount > 0)
+        if (other.transform.childCount > 1)
         {
-            if (other.transform.GetChild(0) != null)
+            if (other.transform.Find("Pot") != null)
             {
-                if (other.transform.GetChild(0).GetChild(0) != null)
+                Transform pot = other.transform.Find("Pot");
+                if (pot.GetChild(0) != null)
                 {
-                    if (other.transform.GetChild(0).GetChild(0).CompareTag("Water") && other.transform.GetChild(0).GetChild(0).gameObject.activeSelf)
+                    if (pot.GetChild(0).CompareTag("Water") && pot.GetChild(0).gameObject.activeSelf)
                     {
                         // Splash enemy and disable their movement
-                        other.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                        pot.GetChild(0).gameObject.SetActive(false);
                         enemyAI.EnemySplashed();
                     }
                 }

@@ -54,7 +54,7 @@ public class PotPickupBehavior : MonoBehaviour
         // Ensure one item picked up at a time
         if (other.CompareTag("Player"))
         {
-            if (other.transform.childCount == 0 || PotManager.IsPickedUp)
+            if (other.transform.childCount == 1 || PotManager.IsPickedUp)
             {
                 PlayerInTrigger = true;
             }
