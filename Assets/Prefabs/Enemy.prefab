@@ -148,6 +148,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   FleeRange: 5
+  IsSplashed: 0
+  IsPickedUp: 0
 --- !u!1 &5129823596204981920
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,4 +268,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297a677654adf1f4dafceffc37d16f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerInTrigger: 0

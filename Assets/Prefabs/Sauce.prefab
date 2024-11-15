@@ -134,7 +134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5640447942785381610}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.31, y: 0.34448, z: -2.2}
   m_LocalScale: {x: 3.5, y: 1.5, z: 3.5}
   m_ConstrainProportionsScale: 0
@@ -331,9 +331,10 @@ GameObject:
   - component: {fileID: 6011463852313463702}
   - component: {fileID: 4189093990766901022}
   - component: {fileID: 693619104115667519}
+  - component: {fileID: 7247226138932449150}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Sauce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,11 +420,23 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.98932546
+  m_Height: 6.278919
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: -0.48932505}
+--- !u!114 &7247226138932449150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7309101209331720743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e094da37998a8940a29e1655e4081ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
