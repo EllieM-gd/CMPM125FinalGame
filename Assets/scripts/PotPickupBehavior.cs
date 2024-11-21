@@ -10,6 +10,10 @@ public class PotPickupBehavior : MonoBehaviour
     private GameObject Player;
     private Transform StoveTransform;
     private bool PlayerInTrigger = false;
+    public Animator potAnimator;
+    public Transform WaterOrigin;
+    public GameObject WaterObj;
+    private bool CanThrow = true;
 
     // Start is called before the first frame update
     void Start()
@@ -35,18 +39,40 @@ public class PotPickupBehavior : MonoBehaviour
                 PotManager.IsPickedUp = false;
                 // Refill water
                 Pot.transform.GetChild(0).gameObject.SetActive(true);
+                potAnimator.Play("Pot Idle");
+                CanThrow = true;
             }
             else
             {
                 Pot.transform.parent = Player.transform;
                 Pot.transform.position = Player.transform.position + Player.transform.forward.normalized;
+                Pot.transform.rotation = Player.transform.rotation * Quaternion.Euler(0f, 180f, 0f);
                 PotManager.IsPickedUp = true;
             }
         }
-        //if (!PlayerInTrigger && Input.GetButtonDown("Fire2"))
-        //{
-        //    throw / dump water
-        //}
+        if (!PlayerInTrigger && Input.GetButtonDown("Fire2") && PotManager.IsPickedUp)
+        {
+            if (CanThrow)
+            {
+                StartCoroutine(ThrowWaterAfterDelay(0.25f));
+            }
+        }
+    }
+
+    private IEnumerator ThrowWaterAfterDelay(float delay)
+    {
+        potAnimator.Play("Pot Throw");
+        // Wait for the specified amount of time to line up with animation
+        yield return new WaitForSeconds(delay);
+        // Instantiate the water object at the WaterOrigin's position and rotation
+        GameObject ThrowWaterObj = Instantiate(WaterObj, WaterOrigin.transform.position, WaterOrigin.transform.rotation);
+        // Apply force to the water object
+        Rigidbody ThrowWaterObjRb = ThrowWaterObj.GetComponent<Rigidbody>();
+        Vector3 throwDirection = WaterOrigin.transform.up;
+        throwDirection += WaterOrigin.transform.forward * 0.5f;
+        ThrowWaterObjRb.AddForce(throwDirection * 10f, ForceMode.Impulse);
+        // Set CanThrow to false to prevent multiple throws
+        CanThrow = false;
     }
 
     private void OnTriggerEnter(Collider other)

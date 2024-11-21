@@ -21,8 +21,10 @@ public class EnemyTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Splash in order to pick up enemy
         if (enemyAI.IsSplashed && PlayerInTrigger && Input.GetButtonDown("Fire2"))
         {
+            // Pick up enemy
             if (!enemyAI.IsPickedUp)
             {
                 enemyAI.transform.parent = Player.transform;
@@ -48,16 +50,23 @@ public class EnemyTrigger : MonoBehaviour
             if (other.transform.Find("Pot") != null)
             {
                 Transform pot = other.transform.Find("Pot");
-                if (pot.GetChild(0) != null)
-                {
-                    if (pot.GetChild(0).CompareTag("Water") && pot.GetChild(0).gameObject.activeSelf)
+                if (pot.transform.childCount > 0) {
+                    if (pot.GetChild(0) != null)
                     {
-                        // Splash enemy and disable their movement
-                        pot.GetChild(0).gameObject.SetActive(false);
-                        enemyAI.EnemySplashed();
+                        if (pot.GetChild(0).CompareTag("Water") && pot.GetChild(0).gameObject.activeSelf)
+                        {
+                            // Splash enemy and disable their movement
+                            pot.GetChild(0).gameObject.SetActive(false);
+                            enemyAI.EnemySplashed();
+                        }
                     }
                 }
             }
+        }
+        // Splash enemy if it touches water
+        if (other.CompareTag("Water"))
+        {
+            enemyAI.EnemySplashed();
         }
     }
 
