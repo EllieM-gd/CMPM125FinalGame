@@ -6,6 +6,9 @@ public class WaterCollision : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, 0.1f);
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject, 0.1f);
+        }
     }
 }

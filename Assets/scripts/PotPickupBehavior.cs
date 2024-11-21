@@ -54,14 +54,16 @@ public class PotPickupBehavior : MonoBehaviour
         {
             if (CanThrow)
             {
-                StartCoroutine(ThrowWaterAfterDelay(0.25f));
+                // Set CanThrow to false to prevent multiple throws
+                CanThrow = false;
+                StartCoroutine(ThrowWaterAfterDelay(0.38f));
             }
         }
     }
 
     private IEnumerator ThrowWaterAfterDelay(float delay)
     {
-        potAnimator.Play("Pot Throw");
+        potAnimator.Play("Pot Throw2");
         // Wait for the specified amount of time to line up with animation
         yield return new WaitForSeconds(delay);
         // Instantiate the water object at the WaterOrigin's position and rotation
@@ -70,9 +72,7 @@ public class PotPickupBehavior : MonoBehaviour
         Rigidbody ThrowWaterObjRb = ThrowWaterObj.GetComponent<Rigidbody>();
         Vector3 throwDirection = WaterOrigin.transform.up;
         throwDirection += WaterOrigin.transform.forward * 0.5f;
-        ThrowWaterObjRb.AddForce(throwDirection * 10f, ForceMode.Impulse);
-        // Set CanThrow to false to prevent multiple throws
-        CanThrow = false;
+        ThrowWaterObjRb.AddForce(throwDirection * 8f, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)
