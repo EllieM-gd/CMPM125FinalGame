@@ -28,7 +28,7 @@ public class EnemyTrigger : MonoBehaviour
             if (!enemyAI.IsPickedUp)
             {
                 enemyAI.transform.parent = Player.transform;
-                enemyAI.transform.position = Player.transform.position + Player.transform.forward.normalized;
+                enemyAI.transform.position = Player.transform.position + Player.transform.forward.normalized * 1.05f;
                 enemyAI.EnemyPickedUp();
             }
         }
@@ -44,25 +44,25 @@ public class EnemyTrigger : MonoBehaviour
                 PlayerInTrigger = true;
             }
         }
-        // Check if Player is holding pot and that pot has water
-        if (other.transform.childCount > 1)
-        {
-            if (other.transform.Find("Pot") != null)
-            {
-                Transform pot = other.transform.Find("Pot");
-                if (pot.transform.childCount > 0) {
-                    if (pot.GetChild(0) != null)
-                    {
-                        if (pot.GetChild(0).CompareTag("Water") && pot.GetChild(0).gameObject.activeSelf)
-                        {
-                            // Splash enemy and disable their movement
-                            pot.GetChild(0).gameObject.SetActive(false);
-                            enemyAI.EnemySplashed();
-                        }
-                    }
-                }
-            }
-        }
+        //// Check if Player is holding pot and that pot has water
+        //if (other.transform.childCount > 1)
+        //{
+        //    if (other.transform.Find("Pot") != null)
+        //    {
+        //        Transform pot = other.transform.Find("Pot");
+        //        if (pot.transform.childCount > 0) {
+        //            if (pot.GetChild(0) != null)
+        //            {
+        //                if (pot.GetChild(0).CompareTag("Water") && pot.GetChild(0).gameObject.activeSelf)
+        //                {
+        //                    // Splash enemy and disable their movement
+        //                    pot.GetChild(0).gameObject.SetActive(false);
+        //                    enemyAI.EnemySplashed();
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
         // Splash enemy if it touches water
         if (other.CompareTag("Water"))
         {
