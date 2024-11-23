@@ -23,6 +23,7 @@ public class PotManager : MonoBehaviour
 
     [SerializeField] public GameObject Pot;
     public bool IsPickedUp = false;
+    public bool CanThrow = true;
     public Vector3 PotBasePosition = Vector3.zero;
 
     // Start is called before the first frame update

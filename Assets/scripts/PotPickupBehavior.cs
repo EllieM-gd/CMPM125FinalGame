@@ -13,7 +13,7 @@ public class PotPickupBehavior : MonoBehaviour
     public Animator potAnimator;
     public Transform WaterOrigin;
     public GameObject WaterObj;
-    private bool CanThrow = true;
+    public Animator playerAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -40,22 +40,23 @@ public class PotPickupBehavior : MonoBehaviour
                 // Refill water
                 Pot.transform.GetChild(0).gameObject.SetActive(true);
                 potAnimator.Play("Pot Idle");
-                CanThrow = true;
+                PotManager.CanThrow = true;
             }
             else
             {
                 Pot.transform.parent = Player.transform;
-                Pot.transform.position = Player.transform.position + Player.transform.forward.normalized;
+                // Offset forward so player cosmetics do not clip with pot
+                Pot.transform.position = Player.transform.position + Player.transform.forward.normalized * 1.05f;
                 Pot.transform.rotation = Player.transform.rotation * Quaternion.Euler(0f, 180f, 0f);
                 PotManager.IsPickedUp = true;
             }
         }
         if (!PlayerInTrigger && Input.GetButtonDown("Fire2") && PotManager.IsPickedUp)
         {
-            if (CanThrow)
+            if (PotManager.CanThrow)
             {
                 // Set CanThrow to false to prevent multiple throws
-                CanThrow = false;
+                PotManager.CanThrow = false;
                 StartCoroutine(ThrowWaterAfterDelay(0.38f));
             }
         }
@@ -66,13 +67,14 @@ public class PotPickupBehavior : MonoBehaviour
         potAnimator.Play("Pot Throw2");
         // Wait for the specified amount of time to line up with animation
         yield return new WaitForSeconds(delay);
+        playerAnimator.Play("Player Backup");
         // Instantiate the water object at the WaterOrigin's position and rotation
         GameObject ThrowWaterObj = Instantiate(WaterObj, WaterOrigin.transform.position, WaterOrigin.transform.rotation);
         // Apply force to the water object
         Rigidbody ThrowWaterObjRb = ThrowWaterObj.GetComponent<Rigidbody>();
         Vector3 throwDirection = WaterOrigin.transform.up;
         throwDirection += WaterOrigin.transform.forward * 0.5f;
-        ThrowWaterObjRb.AddForce(throwDirection * 8f, ForceMode.Impulse);
+        ThrowWaterObjRb.AddForce(throwDirection * 10f, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)

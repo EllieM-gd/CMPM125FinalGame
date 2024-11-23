@@ -16,6 +16,8 @@ public class Sauce : MonoBehaviour
         pastaRenderer = GetComponent<Renderer>();
         sauceColor = GetComponent<Renderer>().material.color;
         PotManager = PotManager.Instance;
+        //player.material.color = GameManager.Instance.color;
+        //player.material.SetColor("_EmissionColor", GameManager.Instance.color);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,6 +49,8 @@ public class Sauce : MonoBehaviour
             if (pastaRenderer != null)
             {
                 pastaRenderer.material.color = sauceColor;
+                pastaRenderer.material.SetColor("_EmissionColor", sauceColor/6);
+                pastaRenderer.material.EnableKeyword("_EMISSION");
             }
         }
     }

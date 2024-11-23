@@ -8,6 +8,7 @@ TagManager:
   - Pasta
   - Water
   - Sauce
+  - Wall
   layers:
   - Default
   - TransparentFX
