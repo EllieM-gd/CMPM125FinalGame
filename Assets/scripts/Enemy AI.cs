@@ -16,6 +16,10 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float FleeRange = 4f;
     public bool IsSplashed = false;
     public bool IsPickedUp = false;
+    public bool InDashState = false;
+    private float AgentBaseSpeed = 0f;
+    private float AgentBaseAcceleration = 0f;
+    private float AgentBaseAngluarSpeed = 0f;
 
     //Below Block will need to be uncommented when pooling is implemented
 
@@ -45,11 +49,22 @@ public class EnemyAI : MonoBehaviour
         }
 
         Agent.SetDestination(Destination);
+
+        AgentBaseAcceleration = Agent.acceleration;
+        AgentBaseSpeed = Agent.speed;
+        AgentBaseAngluarSpeed = Agent.angularSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if ((Random.Range(1, 1001) == 1) && (InDashState == false))
+        {
+            InDashState = true;
+            StartCoroutine(Dash());
+            StartCoroutine(DashCooldown());
+        }
+
         if (!IsSplashed)
         {
             PlayerPosition = player.transform.position;
@@ -127,4 +142,26 @@ public class EnemyAI : MonoBehaviour
         IsPickedUp = true;
         Agent.enabled = false;
     }
+
+    private IEnumerator Dash()
+    {
+        Agent.speed = 50;
+        Agent.acceleration = 50;
+        Agent.angularSpeed = 50;
+        yield return new WaitForSeconds(0.75f);
+        Agent.speed = AgentBaseSpeed;
+        Agent.acceleration = AgentBaseAcceleration;
+        Agent.angularSpeed = AgentBaseAngluarSpeed;
+    }
+
+    private IEnumerator DashCooldown()
+    {
+        yield return new WaitForSeconds(Random.Range(4f, 7f));
+        InDashState = false;
+    }
+
+    //private float EaseOutQuart(float t)
+    //{
+    //    return 1 - Mathf.Pow(1 - t, 4);
+    //}
 }
