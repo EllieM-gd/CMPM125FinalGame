@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Sauce
   - Wall
+  - Counter
   layers:
   - Default
   - TransparentFX

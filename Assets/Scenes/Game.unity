@@ -96,7 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4eb85e6167e799e46b3e6ee1352ffcd1,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -4784,6 +4785,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoveCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 3933338989922244376, guid: 833256e5406c9e043b3758fbb12bab52,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933338989922244376, guid: 833256e5406c9e043b3758fbb12bab52,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4457954862989184418, guid: 833256e5406c9e043b3758fbb12bab52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4982,6 +4993,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Counter
       objectReference: {fileID: 0}
+    - target: {fileID: 522883074463993542, guid: 28b4950c30324634897e8ef9a79b83fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 522883074463993542, guid: 28b4950c30324634897e8ef9a79b83fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 867637606258431100, guid: 28b4950c30324634897e8ef9a79b83fc,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -5118,6 +5139,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4189093990766901022, guid: 378ad035b1aceeb4fae8f56c0cd2118f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d053951ce74c89343a86f0157c75eac6, type: 2}
     - target: {fileID: 5640447942785381610, guid: 378ad035b1aceeb4fae8f56c0cd2118f,
         type: 3}
       propertyPath: m_Name
