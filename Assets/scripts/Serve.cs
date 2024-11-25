@@ -8,12 +8,21 @@ public class Serve : MonoBehaviour
     private PotManager PotManager;
     private Transform pasta;
     private Transform TableTransform;
+
+    public AchievementPopUp achievementPopUp;
+
     // Start is called before the first frame update
     private void Start()
     {
         // Get the Renderer component of the pasta
         PotManager = PotManager.Instance;
         TableTransform = this.gameObject.transform.parent;
+
+        achievementPopUp = FindObjectOfType<AchievementPopUp>();
+        if (achievementPopUp == null)
+        {
+            Debug.LogError("AchievementPopUp script not found in the scene!");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,13 +48,32 @@ public class Serve : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (PlayerInTrigger && Input.GetKeyDown(KeyCode.E))
+        //{
+        //    pasta.transform.parent = TableTransform;
+        //    pasta.transform.position = new Vector3(TableTransform.position.x, TableTransform.position.y + 0.8f, TableTransform.position.z);
+        //    // Make pasta disappear after some time so customers eat it
+        //    StartCoroutine(DisableAfterDelay());
+        //}
         if (PlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            pasta.transform.parent = TableTransform;
-            pasta.transform.position = new Vector3(TableTransform.position.x, TableTransform.position.y + 0.8f, TableTransform.position.z);
-            // Make pasta disappear after some time so customers eat it
-            StartCoroutine(DisableAfterDelay());
+            ServeMeal();
         }
+    }
+    private void ServeMeal()
+    {
+        // Place pasta on the table
+        pasta.transform.parent = TableTransform;
+        pasta.transform.position = new Vector3(TableTransform.position.x, TableTransform.position.y + 0.8f, TableTransform.position.z);
+
+        // Show the achievement pop-up
+        if (achievementPopUp != null)
+        {
+            achievementPopUp.ShowPopup("Meal served... Yum!");
+        }
+
+        // Disable pasta after a delay
+        StartCoroutine(DisableAfterDelay());
     }
 
     private IEnumerator DisableAfterDelay()
