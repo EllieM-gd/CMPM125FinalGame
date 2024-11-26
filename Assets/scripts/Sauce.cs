@@ -10,6 +10,8 @@ public class Sauce : MonoBehaviour
     private bool PlayerInTrigger = false;
     private Transform pasta;
     private PotManager PotManager;
+    private GameObject sauce;
+    
 
     private void Start()
     {
@@ -23,13 +25,17 @@ public class Sauce : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collided with " + other.name);
         // Check if player is holding object and isn't pot which means it is pasta
         if (other.CompareTag("Player"))
         {
             if (other.transform.childCount > 1 && !PotManager.IsPickedUp)
             {
                 PlayerInTrigger = true;
-                pasta = other.transform.GetChild(1);
+                pasta = other.transform.GetChild(1).GetChild(1);
+                Debug.Log(pasta.name);
+                sauce = pasta.GetChild(0).GetChild(0).gameObject;
+                Debug.Log(sauce.name);
             }
         }
     }
@@ -47,7 +53,7 @@ public class Sauce : MonoBehaviour
         if (PlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             // Get the material that's on the pasta mesh
-            Material pastaMaterial = pasta.GetComponent<Renderer>().material;
+            Material pastaMaterial = sauce.GetComponent<Renderer>().material;
             if (pastaRenderer != null)
             {
                 // The first time a sauce is applied to the pasta, turn the "None" node on the graph from true to false
@@ -65,7 +71,10 @@ public class Sauce : MonoBehaviour
                 {
                     pastaMaterial.SetInt(PMaterialName, 1);
                 }
+                
             }
+            else Debug.Log("Pasta Renderer is null");
+            sauce.SetActive(true);
         }
     }
 }

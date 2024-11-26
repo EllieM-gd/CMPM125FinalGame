@@ -8,6 +8,7 @@ public class Serve : MonoBehaviour
     private PotManager PotManager;
     private Transform pasta;
     private Transform TableTransform;
+    public Transform targetLocation;
 
     public AchievementPopUp achievementPopUp;
 
@@ -64,7 +65,7 @@ public class Serve : MonoBehaviour
     {
         // Place pasta on the table
         pasta.transform.parent = TableTransform;
-        pasta.transform.position = new Vector3(TableTransform.position.x, TableTransform.position.y + 0.8f, TableTransform.position.z);
+        pasta.transform.localPosition = targetLocation.localPosition;
 
         // Show the achievement pop-up
         if (achievementPopUp != null)
