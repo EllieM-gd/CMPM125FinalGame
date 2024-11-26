@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private GameObject player;
     private Vector3 PlayerPosition;
     public NavMeshAgent Agent;
+    private MeshRenderer meshRenderer;
+    private GameObject plate;
     [SerializeField] private LayerMask layerMask;
     private Vector3 Destination = Vector3.zero;
     [SerializeField] private float FleeRange = 4f;
@@ -35,6 +37,15 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+
+        meshRenderer = GetComponent<MeshRenderer>();
+
+        plate = gameObject.transform.Find("Plate").gameObject;
+
+        if (plate != null)
+        {
+            plate.SetActive(false);
+        }
 
         PlayerPosition = player.transform.position;
 
@@ -135,6 +146,8 @@ public class EnemyAI : MonoBehaviour
     {
         IsSplashed = true;
         Agent.enabled = false;
+        meshRenderer.enabled = false;
+        plate.SetActive(true);
     }
 
     public void EnemyPickedUp()
