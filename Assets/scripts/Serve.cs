@@ -11,6 +11,7 @@ public class Serve : MonoBehaviour
     public Transform targetLocation;
 
     public AchievementPopUp achievementPopUp;
+    public MealCounter mealCounter;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,6 +24,12 @@ public class Serve : MonoBehaviour
         if (achievementPopUp == null)
         {
             Debug.LogError("AchievementPopUp script not found in the scene!");
+        }
+
+        mealCounter = FindObjectOfType<MealCounter>();
+        if (mealCounter == null)
+        {
+            Debug.LogError("MealCounter script not found in the scene!");
         }
     }
 
@@ -77,6 +84,12 @@ public class Serve : MonoBehaviour
         if (isCorrectRecipe)
         {
             RecipeManager.Instance.ClearRecipeBoard(); // Clear the recipe board and generate a new recipe
+
+            if (mealCounter != null)
+            {
+                mealCounter.IncrementMealCounter();
+            }
+
             if (achievementPopUp != null)
             {
                 achievementPopUp.ShowPopup("Just what I ordered, yumm!");
