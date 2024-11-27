@@ -67,15 +67,35 @@ public class Serve : MonoBehaviour
         pasta.transform.parent = TableTransform;
         pasta.transform.localPosition = targetLocation.localPosition;
 
-        // Show the achievement pop-up
-        if (achievementPopUp != null)
+        // Validate the recipe (using applied sauces from Sauce script)
+        bool isCorrectRecipe = RecipeManager.Instance.ValidateRecipe(Sauce.appliedSauces);
+
+        // Debug log the applied sauces and the current recipe
+        Debug.Log("Applied Sauces: " + string.Join(", ", Sauce.appliedSauces));
+        Debug.Log("Current Recipe: " + string.Join(", ", RecipeManager.Instance.currentRecipe));
+
+        if (isCorrectRecipe)
         {
-            achievementPopUp.ShowPopup("Meal served... Yum!");
+            RecipeManager.Instance.ClearRecipeBoard(); // Clear the recipe board and generate a new recipe
+            if (achievementPopUp != null)
+            {
+                achievementPopUp.ShowPopup("Correct Recipe Served!");
+            }
+        }
+        else
+        {
+            if (achievementPopUp != null)
+            {
+                achievementPopUp.ShowPopup("Wrong Recipe!");
+            }
         }
 
         // Disable pasta after a delay
         StartCoroutine(DisableAfterDelay());
     }
+
+
+
 
     private IEnumerator DisableAfterDelay()
     {
