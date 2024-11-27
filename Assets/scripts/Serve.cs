@@ -79,14 +79,14 @@ public class Serve : MonoBehaviour
             RecipeManager.Instance.ClearRecipeBoard(); // Clear the recipe board and generate a new recipe
             if (achievementPopUp != null)
             {
-                achievementPopUp.ShowPopup("Correct Recipe Served!");
+                achievementPopUp.ShowPopup("Just what I ordered, yumm!");
             }
         }
         else
         {
             if (achievementPopUp != null)
             {
-                achievementPopUp.ShowPopup("Wrong Recipe!");
+                achievementPopUp.ShowPopup("This isn't what I ordered :(");
             }
         }
 
