@@ -24,12 +24,18 @@ public class RecipeManager : MonoBehaviour
     public void GenerateNewRecipe()
     {
         currentRecipe.Clear();
+        List<string> availableSaucesCopy = new List<string>(availableSauces); // Create a copy to ensure no duplicates
         int numberOfSauces = Random.Range(2, 4); // Recipe includes 2-3 sauces
 
         for (int i = 0; i < numberOfSauces; i++)
         {
-            string randomSauce = availableSauces[Random.Range(0, availableSauces.Count)];
+            if (availableSaucesCopy.Count == 0) break;
+            int randomIndex = Random.Range(0, availableSaucesCopy.Count);
+
+            string randomSauce = availableSaucesCopy[randomIndex];
             currentRecipe.Add(randomSauce);
+
+            availableSaucesCopy.RemoveAt(randomIndex);
         }
 
         UpdateRecipeText();

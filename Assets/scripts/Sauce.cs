@@ -9,11 +9,13 @@ public class Sauce : MonoBehaviour
     private string sauceColor;
     private bool PlayerInTrigger = false;
     private Transform pasta;
+    private PotManager PotManager;
     private GameObject sauce;
     public static List<string> appliedSauces = new List<string>(); // List to store applied sauces
 
     private void Start()
     {
+        PotManager = PotManager.Instance;
         pastaRenderer = GetComponent<Renderer>();
         sauceColor = GetComponent<Renderer>().material.name;
     }
@@ -22,7 +24,7 @@ public class Sauce : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (other.transform.childCount > 1)
+            if (other.transform.childCount > 1 && !PotManager.IsPickedUp)
             {
                 PlayerInTrigger = true;
                 pasta = other.transform.GetChild(1).GetChild(1);
@@ -49,39 +51,46 @@ public class Sauce : MonoBehaviour
 
     private void ApplySauce()
     {
-        // Apply the sauce to pasta
+        // Get the material that's on the pasta mesh
         Material pastaMaterial = sauce.GetComponent<Renderer>().material;
-        if (pastaMaterial != null)
+        if (pastaRenderer != null)
         {
-            string materialName = pastaMaterial.name;
+            // The first time a sauce is applied to the pasta, turn the "None" node on the graph from true to false
+            if (pastaMaterial.GetInt("_None") == 1)
+            {
+                pastaMaterial.SetInt("_None", 0);
+            }
 
-            // Map the material name to the corresponding sauce name
+            // Get the sauce name from the specific pot, and change that corresponding boolean in the shader graph
+            Regex regexExp = new Regex("[a-z]+");
+            Match regexOutput = regexExp.Match(GetComponent<Renderer>().material.name);
+
+            string PMaterialName = "_" + regexOutput.Value;
             string sauceName = "";
-            if (materialName.Contains("red"))
+            if (pastaMaterial.GetInt(PMaterialName) == 0)
+            {
+                pastaMaterial.SetInt(PMaterialName, 1);
+            }
+            if (PMaterialName == "_red")
             {
                 sauceName = "Tomato";  // Red is Tomato
             }
-            else if (materialName.Contains("cream"))
+            if (PMaterialName == "_cream")
             {
                 sauceName = "Alfredo";  // Cream is Alfredo
             }
-            else if (materialName.Contains("green"))
+            if (PMaterialName == "_green")
             {
                 sauceName = "Pesto";  // Green is Pesto
             }
-
             // Add the sauce name to the appliedSauces list if it isn't already there
-            if (!string.IsNullOrEmpty(sauceName) && !appliedSauces.Contains(sauceName))
+                if (!string.IsNullOrEmpty(sauceName) && !appliedSauces.Contains(sauceName))
             {
                 appliedSauces.Add(sauceName);  // Add the sauce to the list
             }
-
-            sauce.SetActive(true);  // Make the sauce visible on the pasta
         }
-        else
-        {
-            Debug.LogError("Pasta Renderer is null");
-        }
+        else Debug.Log("Pasta Renderer is null");
+        sauce.SetActive(true);
     }
 
 }

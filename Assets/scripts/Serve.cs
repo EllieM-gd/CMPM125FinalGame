@@ -90,6 +90,8 @@ public class Serve : MonoBehaviour
             }
         }
 
+        Sauce.appliedSauces.Clear();
+
         // Disable pasta after a delay
         StartCoroutine(DisableAfterDelay());
     }
