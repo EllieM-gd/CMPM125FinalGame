@@ -10,6 +10,7 @@ public class Serve : MonoBehaviour
     private Transform TableTransform;
     public Transform targetLocation;
     private Animator plateAnimator;
+    private Animator customerAnimator;
     public AchievementPopUp achievementPopUp;
     public MealCounter mealCounter;
 
@@ -75,7 +76,7 @@ public class Serve : MonoBehaviour
         pasta.transform.localPosition = targetLocation.localPosition;
         pasta.transform.localRotation = targetLocation.localRotation;
         plateAnimator = pasta.GetChild(1).GetComponent<Animator>();
-        plateAnimator.Play("Plate Serve");
+        customerAnimator = TableTransform.GetChild(2).GetComponent<Animator>();
         // Validate the recipe (using applied sauces from Sauce script)
         bool isCorrectRecipe = RecipeManager.Instance.ValidateRecipe(Sauce.appliedSauces);
 
@@ -95,6 +96,8 @@ public class Serve : MonoBehaviour
             if (achievementPopUp != null)
             {
                 achievementPopUp.ShowPopup("Just what I ordered, yumm!");
+                plateAnimator.Play("Plate Serve");
+                customerAnimator.Play("Customer Serve");
             }
         }
         else
