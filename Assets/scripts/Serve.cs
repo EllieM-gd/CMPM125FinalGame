@@ -9,7 +9,7 @@ public class Serve : MonoBehaviour
     private Transform pasta;
     private Transform TableTransform;
     public Transform targetLocation;
-
+    private Animator plateAnimator;
     public AchievementPopUp achievementPopUp;
     public MealCounter mealCounter;
 
@@ -73,7 +73,9 @@ public class Serve : MonoBehaviour
         // Place pasta on the table
         pasta.transform.parent = TableTransform;
         pasta.transform.localPosition = targetLocation.localPosition;
-
+        pasta.transform.localRotation = targetLocation.localRotation;
+        plateAnimator = pasta.GetChild(1).GetComponent<Animator>();
+        plateAnimator.Play("Plate Serve");
         // Validate the recipe (using applied sauces from Sauce script)
         bool isCorrectRecipe = RecipeManager.Instance.ValidateRecipe(Sauce.appliedSauces);
 

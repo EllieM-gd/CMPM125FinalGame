@@ -1378,6 +1378,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1141039329227387570, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: plateAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7947766077481478666, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2138,7 +2163,6 @@ Transform:
   - {fileID: 1571494355}
   - {fileID: 1758512279}
   - {fileID: 760913284}
-  - {fileID: 6705818908302159750}
   - {fileID: 221261521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2465,9 +2489,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1141039329227387570, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
         type: 3}
+      propertyPath: plateAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141039329227387570, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
       propertyPath: achievementPopUp
       value: 
       objectReference: {fileID: 2093789225}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
     - target: {fileID: 7947766077481478666, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3951,7 +4000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1321946374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10572,6 +10621,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1141039329227387570, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: plateAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
     - target: {fileID: 7947766077481478666, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10792,7 +10866,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 717129895}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2530822544477974857, guid: e58d25dad06dd7145a5de1717c0cdf57,
         type: 3}
@@ -11187,12 +11261,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1107369703128089974}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6705818908302159750 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2751870443057412385, guid: e58d25dad06dd7145a5de1717c0cdf57,
-    type: 3}
-  m_PrefabInstance: {fileID: 280043822614550358}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6763685763601180984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11306,6 +11374,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 1141039329227387570, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: plateAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767048965834482590, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7947766077481478666, guid: e8ccd44e2a79c2746985e0ce3d67a4ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11394,6 +11482,7 @@ SceneRoots:
   - {fileID: 2177764950938565178}
   - {fileID: 1070009365696568127}
   - {fileID: 1395671072}
+  - {fileID: 280043822614550358}
   - {fileID: 601010486}
   - {fileID: 1076315701}
   - {fileID: 2093789224}

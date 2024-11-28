@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
@@ -28,7 +29,8 @@ public class EnemyTrigger : MonoBehaviour
             if (!enemyAI.IsPickedUp)
             {
                 enemyAI.transform.parent = Player.transform;
-                enemyAI.transform.position = Player.transform.position + Player.transform.forward.normalized * 1.05f;
+                enemyAI.transform.position = Player.transform.position + Player.transform.forward.normalized * 1.25f + Vector3.up * 0.5f;
+                enemyAI.transform.rotation = Player.transform.rotation * Quaternion.Euler(0f, 180f, 0f);
                 enemyAI.EnemyPickedUp();
             }
         }
