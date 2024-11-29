@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2989601109735746211}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0794, y: 0.0273, z: 0.0002}
+  m_LocalPosition: {x: -0.0745, y: 0.0273, z: 0.0002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +180,7 @@ Transform:
   m_GameObject: {fileID: 7392483517788176609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0763, y: -0.0248, z: 0.0002}
+  m_LocalPosition: {x: -0.0714, y: -0.0248, z: 0.0002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,7 +329,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8cca329afc1a8ff46a75e90a6da5af49,
         type: 3}
       propertyPath: m_Name
-      value: BulletinBoard 1
+      value: BulletinBoard
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8cca329afc1a8ff46a75e90a6da5af49,
         type: 3}

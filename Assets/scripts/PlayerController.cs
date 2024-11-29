@@ -5,7 +5,6 @@ using UnityEngine;
 // Referenced https://docs.unity3d.com/ScriptReference/CharacterController.Move.html for simple character controller.
 public class PlayerController : MonoBehaviour
 {
-    //public MeshRenderer player;
     private CharacterController controller;
     public float playerSpeed = 6.5f;
     public float rotationSpeed = 720f;
@@ -13,17 +12,13 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private float gravityValue = -9.81f;
     //public float jumpHeight = 4.0f;
+    public GameObject recipeCamera;
 
-    // Start is called before the first frame update
     void Start()
     {
-        // DontDestroyOnLoad(gameObject);
         controller = GetComponent<CharacterController>();
-        //player.material.color = GameManager.Instance.color;
-        //player.material.SetColor("_EmissionColor", GameManager.Instance.color);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Gravity
@@ -52,5 +47,16 @@ public class PlayerController : MonoBehaviour
         // Gravity
         playerVelocity.y += gravityValue * Time.deltaTime * 4.0f;
         controller.Move(playerVelocity * Time.deltaTime * 4.0f);
+
+        //Enable recipe camera while held
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            recipeCamera.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            recipeCamera.SetActive(false);
+        }
+
     }
 }

@@ -82,11 +82,10 @@ public class Serve : MonoBehaviour
 
         // Debug log the applied sauces and the current recipe
         Debug.Log("Applied Sauces: " + string.Join(", ", Sauce.appliedSauces));
-        Debug.Log("Current Recipe: " + string.Join(", ", RecipeManager.Instance.currentRecipe));
 
         if (isCorrectRecipe)
         {
-            RecipeManager.Instance.ClearRecipeBoard(); // Clear the recipe board and generate a new recipe
+            RecipeManager.Instance.DeleteRecipeBoard(Sauce.appliedSauces); // Clear the recipe board and generate a new recipe
 
             if (mealCounter != null)
             {
