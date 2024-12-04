@@ -107,6 +107,7 @@ public class Serve : MonoBehaviour
             if (achievementPopUp != null)
             {
                 achievementPopUp.ShowPopup("This isn't what I ordered :(");
+                customerAnimator.Play("Customer Reject");
             }
         }
 
