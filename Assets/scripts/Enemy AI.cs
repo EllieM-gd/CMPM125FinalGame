@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     private float AgentBaseSpeed = 0f;
     private float AgentBaseAcceleration = 0f;
     private float AgentBaseAngluarSpeed = 0f;
+    [SerializeField] private GameObject eyeGameObjects;
 
     //Below Block will need to be uncommented when pooling is implemented
 
@@ -147,6 +149,7 @@ public class EnemyAI : MonoBehaviour
         IsSplashed = true;
         Agent.enabled = false;
         meshRenderer.enabled = false;
+        eyeGameObjects.SetActive(false);
         plate.SetActive(true);
     }
 

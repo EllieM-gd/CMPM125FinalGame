@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using JetBrains.Annotations;
+using System.Collections;
 
 public class RecipeManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class RecipeManager : MonoBehaviour
     public static RecipeManager Instance;
     public GameObject bulletinBoard;
     public GameObject orderPaperPrefab;
+    public float timeToGenerateNewRecipe = 15f;
 
     public class Order
     {
@@ -108,7 +110,16 @@ public class RecipeManager : MonoBehaviour
     private void Start()
     {
         GenerateNewRecipe();
-        GenerateNewRecipe();
+        StartCoroutine(WaitAndGenerateNewRecipe());
+    }
+
+    IEnumerator WaitAndGenerateNewRecipe()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(timeToGenerateNewRecipe);
+            GenerateNewRecipe();
+        }
     }
 
     // Generate a new recipe with random sauces
@@ -151,7 +162,5 @@ public class RecipeManager : MonoBehaviour
         Order temporder = board.returnOrder(order);
         board.removeOrder(temporder);
         bulletinBoard.transform.GetChild(temporder.boardSlot).GetChild(0).GetComponent<OrderPaper>().destroyOrder();
-        GenerateNewRecipe();
-        GenerateNewRecipe();
     }
 }
