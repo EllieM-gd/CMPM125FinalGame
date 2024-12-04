@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 5861455848253177918}
   - component: {fileID: 2530822544477974857}
   - component: {fileID: 2054361602113056493}
+  - component: {fileID: 6495101640559970260}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Pasta
@@ -279,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   Agent: {fileID: 0}
+  plate: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -310,6 +312,27 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -0.06, z: -0.00000008940697}
+--- !u!95 &6495101640559970260
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176565600728133529}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29ed5a35a45c04c4c98cafc30adae456, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8541510712692588094
 GameObject:
   m_ObjectHideFlags: 0

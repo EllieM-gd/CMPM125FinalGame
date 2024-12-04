@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour
     private float AgentBaseAcceleration = 0f;
     private float AgentBaseAngluarSpeed = 0f;
     [SerializeField] public GameObject eyeGameObjects;
+    private Animator enemyAnimator;
 
     //Below Block will need to be uncommented when pooling is implemented
 
@@ -50,6 +51,8 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyAnimator = this.GetComponent<Animator>();
+
         player = GameObject.Find("Player");
 
         meshRenderer = GetComponent<MeshRenderer>();
@@ -163,6 +166,7 @@ public class EnemyAI : MonoBehaviour
         meshRenderer.enabled = false;
         eyeGameObjects.SetActive(false);
         plate.SetActive(true);
+        enemyAnimator.enabled = false;
     }
 
     public void EnemyPickedUp()
@@ -173,6 +177,7 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        enemyAnimator.Play("Enemy Dash");
         Agent.speed = 50;
         Agent.acceleration = 50;
         Agent.angularSpeed = 50;
