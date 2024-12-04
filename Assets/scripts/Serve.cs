@@ -13,6 +13,7 @@ public class Serve : MonoBehaviour
     private Animator customerAnimator;
     public AchievementPopUp achievementPopUp;
     public MealCounter mealCounter;
+    private EnemyManager enemyManager;
 
     // Start is called before the first frame update
     private void Start()
@@ -32,6 +33,8 @@ public class Serve : MonoBehaviour
         {
             Debug.LogError("MealCounter script not found in the scene!");
         }
+
+        enemyManager = EnemyManager.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -119,6 +122,7 @@ public class Serve : MonoBehaviour
     private IEnumerator DisableAfterDelay()
     {
         yield return new WaitForSeconds(3f);
+        StartCoroutine(enemyManager.SpawnNewEnemy());
         // Disable pasta
         pasta.gameObject.SetActive(false);
     } 

@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
     private Vector3 PlayerPosition;
     public NavMeshAgent Agent;
     private MeshRenderer meshRenderer;
-    private GameObject plate;
+    public GameObject plate;
     [SerializeField] private LayerMask layerMask;
     private Vector3 Destination = Vector3.zero;
     [SerializeField] private float FleeRange = 4f;
@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour
     private float AgentBaseSpeed = 0f;
     private float AgentBaseAcceleration = 0f;
     private float AgentBaseAngluarSpeed = 0f;
-    [SerializeField] private GameObject eyeGameObjects;
+    [SerializeField] public GameObject eyeGameObjects;
 
     //Below Block will need to be uncommented when pooling is implemented
 
@@ -34,6 +34,18 @@ public class EnemyAI : MonoBehaviour
     //        Agent.SetDestination(Destination);
     //    }
     //}
+
+    private void Awake()
+    {
+        // Assign the NavMeshAgent component when the script initializes so everything doesn't die
+        Agent = GetComponent<NavMeshAgent>();
+
+        if (Agent == null)
+        {
+            Debug.LogError($"NavMeshAgent component is missing on {gameObject.name}. GO ATTACH IT.");
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -125,7 +137,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     //Checks to make sure the given destination is one that can be reached by the NavMeshAgent
-    private bool CheckDestination(Vector3 tempDestination)
+    public bool CheckDestination(Vector3 tempDestination)
     {
         NavMeshPath path = new NavMeshPath();
 
