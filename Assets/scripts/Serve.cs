@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static RecipeManager;
 
 public class Serve : MonoBehaviour
 {
@@ -60,13 +61,6 @@ public class Serve : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (PlayerInTrigger && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    pasta.transform.parent = TableTransform;
-        //    pasta.transform.position = new Vector3(TableTransform.position.x, TableTransform.position.y + 0.8f, TableTransform.position.z);
-        //    // Make pasta disappear after some time so customers eat it
-        //    StartCoroutine(DisableAfterDelay());
-        //}
         if (PlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             ServeMeal();
@@ -86,9 +80,32 @@ public class Serve : MonoBehaviour
         // Debug log the applied sauces and the current recipe
         Debug.Log("Applied Sauces: " + string.Join(", ", Sauce.appliedSauces));
 
+        List<Order> allOrders = RecipeManager.Instance.board.orders;
+        bool foundMatchingOrder = false;
+        // Check if any order matches the applied sauces
+        foreach (Order currentOrder in allOrders)
+        {
+            Debug.Log("Checking Order: " + string.Join(", ", currentOrder.sauces) + ". Table: " + currentOrder.tableNumber);
+            // Check if the table number matches
+            int currentTableNumber = currentOrder.tableNumber;
+            int servingTableNumber = int.Parse(this.gameObject.transform.GetChild(0).GetChild(2).gameObject.name);
+            if (currentTableNumber == servingTableNumber)
+            {
+                foundMatchingOrder = true;
+                break;
+            }
+        }
+
+        // If no matching order is found, set the recipe as incorrect
+        if (!foundMatchingOrder)
+        {
+            Debug.Log("Attempting to serve to the wrong table.");
+            isCorrectRecipe = false;
+        }
+
         if (isCorrectRecipe)
         {
-            RecipeManager.Instance.DeleteRecipeBoard(Sauce.appliedSauces); // Clear the recipe board and generate a new recipe
+            RecipeManager.Instance.DeleteRecipeBoard(Sauce.appliedSauces, int.Parse(this.gameObject.transform.GetChild(0).GetChild(2).gameObject.name)); // Clear the recipe board and generate a new recipe
 
             if (mealCounter != null)
             {

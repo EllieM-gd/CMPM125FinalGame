@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UIElements;
 using JetBrains.Annotations;
 using System.Collections;
+using System.Linq;
 
 public class RecipeManager : MonoBehaviour
 {
@@ -140,13 +141,14 @@ public class RecipeManager : MonoBehaviour
             availableSaucesCopy.RemoveAt(randomIndex);
         }
         int slot = board.getAvailableSlot();
+        int tableNumber = Random.Range(1, 5);
         if (slot != -1)
         {
-            board.AddOrder(new Order(currentRecipe, Random.Range(1, 5)), bulletinBoard.transform.GetChild(slot), slot);
+            board.AddOrder(new Order(currentRecipe, tableNumber), bulletinBoard.transform.GetChild(slot), slot);
         }
 
         // Log the generated recipe for debugging
-        Debug.Log("New Recipe Generated: " + string.Join(", ", currentRecipe));
+        Debug.Log("New Recipe Generated: Table " + tableNumber + ": " + string.Join(", ", currentRecipe));
     }
 
     // Validate the served pasta against the recipe
@@ -157,10 +159,32 @@ public class RecipeManager : MonoBehaviour
     }
 
     // Clear the recipe board after serving
-    public void DeleteRecipeBoard(List<string> order)
+    public void DeleteRecipeBoard(List<string> order, int tableNumber)
     {
-        Order temporder = board.returnOrder(order);
-        board.removeOrder(temporder);
-        bulletinBoard.transform.GetChild(temporder.boardSlot).GetChild(0).GetComponent<OrderPaper>().destroyOrder();
+        // Return all orders that match the applied recipe (order) and check the table number
+        List<Order> matchingOrders = new List<Order>();
+
+        // Check all orders and find the ones that match both the recipe and the table number
+        foreach (Order tempOrder in board.orders)
+        {
+            if (tempOrder.sauces.SequenceEqual(order) && tempOrder.tableNumber == tableNumber)
+            {
+                matchingOrders.Add(tempOrder);
+            }
+        }
+
+        // If matching orders found, remove the one for the correct table
+        if (matchingOrders.Count > 0)
+        {
+            Order orderToRemove = matchingOrders[0];
+            board.removeOrder(orderToRemove);
+            bulletinBoard.transform.GetChild(orderToRemove.boardSlot).GetChild(0).GetComponent<OrderPaper>().destroyOrder();
+        }
+        else
+        {
+            Order temporder = board.returnOrder(order);
+            board.removeOrder(temporder);
+            bulletinBoard.transform.GetChild(temporder.boardSlot).GetChild(0).GetComponent<OrderPaper>().destroyOrder();
+        }
     }
 }
