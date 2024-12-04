@@ -685,6 +685,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1404808689974043689, guid: bb2eb7a774c003d4abf41e4d338ab59c,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404808689974043689, guid: bb2eb7a774c003d4abf41e4d338ab59c,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -7804145554023134745, guid: 1b29a6a3c66177b4481b69de8d35a932,
@@ -802,6 +807,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1831829658696861500, guid: bb2eb7a774c003d4abf41e4d338ab59c,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831829658696861500, guid: bb2eb7a774c003d4abf41e4d338ab59c,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -7804145554023134745, guid: 1b29a6a3c66177b4481b69de8d35a932,
@@ -822,6 +832,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1b29a6a3c66177b4481b69de8d35a932,
         type: 2}
+    - target: {fileID: 3147405203839327488, guid: bb2eb7a774c003d4abf41e4d338ab59c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3147405203839327488, guid: bb2eb7a774c003d4abf41e4d338ab59c,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -855,6 +870,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1b29a6a3c66177b4481b69de8d35a932,
         type: 2}
+    - target: {fileID: 6989457152047045000, guid: bb2eb7a774c003d4abf41e4d338ab59c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6989457152047045000, guid: bb2eb7a774c003d4abf41e4d338ab59c,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -912,6 +932,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1b29a6a3c66177b4481b69de8d35a932,
         type: 2}
+    - target: {fileID: 8943568492117375433, guid: bb2eb7a774c003d4abf41e4d338ab59c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8943568492117375433, guid: bb2eb7a774c003d4abf41e4d338ab59c,
         type: 3}
       propertyPath: m_sharedMaterial

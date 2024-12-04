@@ -9,17 +9,6 @@ public class AchievementPopUp : MonoBehaviour
     public GameObject popupUI; // Reference to the pop-up panel
     public TextMeshProUGUI popupText; // Reference to the pop-up text
     public float displayDuration = 5f; // Duration to display the pop-up
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // Method to show the pop-up with a message
     public void ShowPopup(string message)

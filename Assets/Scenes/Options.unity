@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -769,6 +769,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 518143054973413687, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 518143054973413687, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 518143054973413687, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 641688000541399664, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1404600793105674789, guid: b3b9fda24df2f7741ba4815230ec239a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -932,6 +952,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 4549437513279279439, guid: b3b9fda24df2f7741ba4815230ec239a,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549437513279279439, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -7804145554023134745, guid: 1b29a6a3c66177b4481b69de8d35a932,
@@ -949,6 +974,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 4776279411653587880, guid: b3b9fda24df2f7741ba4815230ec239a,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776279411653587880, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -7804145554023134745, guid: 1b29a6a3c66177b4481b69de8d35a932,
@@ -964,6 +994,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1b29a6a3c66177b4481b69de8d35a932,
         type: 2}
+    - target: {fileID: 5025454096818684052, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5025454096818684052, guid: b3b9fda24df2f7741ba4815230ec239a,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -986,6 +1021,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1b29a6a3c66177b4481b69de8d35a932,
         type: 2}
+    - target: {fileID: 7808077568524910817, guid: b3b9fda24df2f7741ba4815230ec239a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7808077568524910817, guid: b3b9fda24df2f7741ba4815230ec239a,
         type: 3}
       propertyPath: m_sharedMaterial

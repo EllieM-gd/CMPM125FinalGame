@@ -26,15 +26,8 @@ public class PotManager : MonoBehaviour
     public bool CanThrow = true;
     public Vector3 PotBasePosition = Vector3.zero;
 
-    // Start is called before the first frame update
     void Start()
     {
         PotBasePosition = Pot.transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

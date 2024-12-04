@@ -248,6 +248,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3522182392864716618, guid: f1724677b388bd841b7ab0457f7d6c9b,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522182392864716618, guid: f1724677b388bd841b7ab0457f7d6c9b,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -7804145554023134745, guid: 1b29a6a3c66177b4481b69de8d35a932,
@@ -263,6 +268,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1b29a6a3c66177b4481b69de8d35a932,
         type: 2}
+    - target: {fileID: 4368169717702528100, guid: f1724677b388bd841b7ab0457f7d6c9b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4368169717702528100, guid: f1724677b388bd841b7ab0457f7d6c9b,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -314,6 +324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231964705550323444, guid: f1724677b388bd841b7ab0457f7d6c9b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
