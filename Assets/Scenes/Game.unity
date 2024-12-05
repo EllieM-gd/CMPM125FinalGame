@@ -540,7 +540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &197890642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -558,8 +558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 298, y: 188}
-  m_SizeDelta: {x: -637.7577, y: -412.626}
+  m_AnchoredPosition: {x: 273.61804, y: 183.25906}
+  m_SizeDelta: {x: -588.9938, y: -403.1441}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &197890643
 MonoBehaviour:
@@ -4325,6 +4325,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sauce (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7247226138932449150, guid: 378ad035b1aceeb4fae8f56c0cd2118f,
+        type: 3}
+      propertyPath: applySauceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dd95d068ff58243bd96723d0080e47a3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4466,6 +4471,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sauce (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7247226138932449150, guid: 378ad035b1aceeb4fae8f56c0cd2118f,
+        type: 3}
+      propertyPath: applySauceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dd95d068ff58243bd96723d0080e47a3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15575,6 +15585,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sauce
       objectReference: {fileID: 0}
+    - target: {fileID: 7247226138932449150, guid: 378ad035b1aceeb4fae8f56c0cd2118f,
+        type: 3}
+      propertyPath: applySauceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dd95d068ff58243bd96723d0080e47a3, type: 3}
     - target: {fileID: 9136485111016786874, guid: 378ad035b1aceeb4fae8f56c0cd2118f,
         type: 3}
       propertyPath: m_Enabled
