@@ -295,8 +295,11 @@ PrefabInstance:
         Background music is original music by
         Jinghang Li
 
+        Menu designs by Jinghang Li
 
-        **Click the word below to open the link**
+
+        **Click the word
+        below to open the link**
 
         <link="https://assetstore.unity.com/packages/2d/gui/buttons-set-211824"><u>Buttons
         Set</u></link>
@@ -313,7 +316,8 @@ PrefabInstance:
         <link="https://assetstore.unity.com/packages/2d/textures-materials/stone/hand-painted-stone-floor-pack-99247"><u>Hand
         Painted Stone Floor Pack</u></link>
 
-'
+        <link="https://pixabay.com/sound-effects/"><u>Splash
+        Sounds</u></link>'
       objectReference: {fileID: 0}
     - target: {fileID: 7231964705550323444, guid: f1724677b388bd841b7ab0457f7d6c9b,
         type: 3}
