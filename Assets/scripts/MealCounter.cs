@@ -17,6 +17,9 @@ public class MealCounter : MonoBehaviour
     {
         mealsServed++;
         UpdateCounterText();
+
+        PlayerPrefs.SetInt("MealsServed", mealsServed);
+        PlayerPrefs.Save();
     }
 
     private void UpdateCounterText()

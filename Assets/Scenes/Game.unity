@@ -5856,6 +5856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d3b106aa02d944d870c1ad8a96f21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mealCountText: {fileID: 0}
 --- !u!65 &1321946375
 BoxCollider:
   m_ObjectHideFlags: 0
