@@ -14,6 +14,8 @@ public class PotPickupBehavior : MonoBehaviour
     public Transform WaterOrigin;
     public GameObject WaterObj;
     public Animator playerAnimator;
+    private AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class PotPickupBehavior : MonoBehaviour
         PlayerManager = PlayerManager.Instance;
         Player = PlayerManager.Player;
         StoveTransform = this.gameObject.transform.parent;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
