@@ -12,12 +12,14 @@ public class Sauce : MonoBehaviour
     private PotManager PotManager;
     private GameObject sauce;
     public static List<string> appliedSauces = new List<string>(); // List to store applied sauces
+    private AudioSource audioSource;
 
     private void Start()
     {
         PotManager = PotManager.Instance;
         pastaRenderer = GetComponent<Renderer>();
         sauceColor = GetComponent<Renderer>().material.name;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,6 +48,7 @@ public class Sauce : MonoBehaviour
         if (PlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             ApplySauce();
+            audioSource.Play();
         }
     }
 
